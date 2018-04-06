@@ -8,7 +8,7 @@ public class Prąd2 {
     private double jcenaS = 0.2411;
     private double jcenaD = 0.1601;
     private int korekta = 0;
-    private double ab = (4.34 + 6.50 + 0.38) * 1.23 + 6.49 + 6;
+    private double ab = (7 + 6.50 + 0.38 + 6.49 + 6) * 1.23;
 
     public Prąd2(int stanL)
     {
@@ -25,10 +25,10 @@ public class Prąd2 {
     public double obliczLicznik(int stanL)
     {
         int zuycie = stanL - bazaL;
-        double s12 = zuycie * jcenaS;
-        double s22 = zuycie * jcenaD;
+        double s12 = zuycie * jcenaS * 1.23;
+        double s22 = zuycie * jcenaD * 1.23;
 
-        double licznik2 = (s12 + s22) * 1.23 + ab;
+        double licznik2 = s12 + s22 + ab;
         int nlicznik2 = (int) licznik2;
         return nlicznik2;
     }
@@ -36,10 +36,10 @@ public class Prąd2 {
     public double obliczZLicznik(int stanL)
     {
         int zuycie = stanL - bazaL;
-        double s12 = zuycie * jcenaS;
-        double s22 = zuycie * jcenaD;
+        double s12 = zuycie * jcenaS * 1.23;
+        double s22 = zuycie * jcenaD * 1.23;
 
-        double zlicznik2 = (s12 + s22) * 1.23;
+        double zlicznik2 = s12 + s22;
         int nzlicznik2 = (int) zlicznik2;
         return nzlicznik2;
     }
@@ -47,11 +47,11 @@ public class Prąd2 {
     public double obliczPrognoza(int stanL)
     {
         int zuycie = stanL - bazaL;
-        double s12 = zuycie * jcenaS;
-        double s22 = zuycie * jcenaD;
+        double s12 = zuycie * jcenaS * 1.23;
+        double s22 = zuycie * jcenaD * 1.23;
 
         Parametr par2 = new Parametr(korekta);
-        double prognozaL2 = ((((s12 + s22) * 1.23) + ab - 32.46) * par2.obliczParametr()) + 32.46;
+        double prognozaL2 = ((s12 + s22) * par2.obliczParametr()) + ab;
         int nprognozaL2 = (int) prognozaL2;
         return nprognozaL2;
     }
