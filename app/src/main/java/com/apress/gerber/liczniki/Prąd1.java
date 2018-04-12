@@ -57,8 +57,8 @@ public class Prąd1 {
 
     public String toString()
     {
-        return "L1: do zapłaty " + obliczLicznik(stanL) + " zł. " + "Prognoza " + obliczPrognoza(stanL)
-                + " zł.  Zużycie " + obliczZLicznik(stanL) + " zł.";
+        return "L1: zużycie " + obliczZLicznik(stanL)+  " zł. do zapłaty " + obliczLicznik(stanL)  + " zł. " + "rachunek "
+                + obliczPrognoza(stanL)  + " zł.";
     }
 
 }
