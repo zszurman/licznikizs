@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             w = Integer.parseInt(podL2.getText().toString());
         else w = 1;
 
-        if ((w >= 1685) && (w < 1999)) {
+        if ((w >= 1685) && (w < 9023)) {
             Prąd2 woda = new Prąd2(0, w);
             textL2.setText(woda.toString());
         } else textL2.setText("nieprawidłowe dane");

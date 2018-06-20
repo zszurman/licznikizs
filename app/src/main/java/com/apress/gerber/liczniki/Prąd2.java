@@ -3,8 +3,8 @@ package com.apress.gerber.liczniki;
 public class Prąd2 {
 
 
-    private int bazaL = 1685;
-    private int stanL = 1685;
+    private int bazaL = 1977;
+    private int stanL = 1977;
     private double jcenaS = 0.2411;
     private double jcenaD = 0.1601;
     private int korekta = 0;
@@ -29,7 +29,7 @@ public class Prąd2 {
         double s22 = zuycie * jcenaD * 1.23;
 
         double licznik2 = s12 + s22 + ab;
-        int nlicznik2 = (int) licznik2;
+        int nlicznik2 = (int) Math.round(licznik2);
         return nlicznik2;
     }
 
@@ -40,7 +40,7 @@ public class Prąd2 {
         double s22 = zuycie * jcenaD * 1.23;
 
         double zlicznik2 = s12 + s22;
-        int nzlicznik2 = (int) zlicznik2;
+        int nzlicznik2 = (int) Math.round(zlicznik2);
         return nzlicznik2;
     }
 
@@ -52,7 +52,7 @@ public class Prąd2 {
 
         Parametr par2 = new Parametr(korekta);
         double prognozaL2 = ((s12 + s22) * par2.obliczParametr()) + ab;
-        int nprognozaL2 = (int) prognozaL2;
+        int nprognozaL2 = (int) Math.round(prognozaL2);
         return nprognozaL2;
     }
     public String toString()

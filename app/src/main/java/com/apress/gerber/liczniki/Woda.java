@@ -2,8 +2,8 @@ package com.apress.gerber.liczniki;
 
 public class Woda {
 
-    private int bazaL = 293;
-    private int stanL = 293;
+    private int bazaL = 318;
+    private int stanL = 318;
     private int korekta = 0;
     private double jcenaW = 5.19;
     private double jcenaK = 6.71;
@@ -27,7 +27,7 @@ public class Woda {
         double woda = (zuycie * jcenaW) + (zuycie * jcenaW * 0.08);
         double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
         double wk = woda + kanal + ab;
-        int nwk = (int) wk;
+        int nwk = (int) Math.round(wk);
         return nwk;
 
     }
@@ -38,7 +38,7 @@ public class Woda {
         double woda = (zuycie * jcenaW) + (zuycie * jcenaW * 0.08);
         double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
         double zwk = woda + kanal;
-        int nzwk = (int) zwk;
+        int nzwk = (int) Math.round(zwk);
         return nzwk;
 
     }
@@ -50,7 +50,7 @@ public class Woda {
         double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
         Parametr par = new Parametr(korekta);
         double prognozaW = ((woda + kanal) * par.obliczParametr()) + ab;
-        int nprognozaW = (int) prognozaW;
+        int nprognozaW = (int) Math.round(prognozaW);
         return nprognozaW;
     }
 
