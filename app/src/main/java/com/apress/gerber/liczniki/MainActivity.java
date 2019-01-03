@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
             w = Integer.parseInt(podW.getText().toString());
         else w = 1;
 
-        if ((w >= 293) && (w < 400)) {
-            Woda woda = new Woda(0, w);
+        if ((w >= 396) && (w < 600)) {
+            Woda woda = new Woda(w);
             textW.setText(woda.toString());
         } else textW.setText("nieprawidłowe dane");
 
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
             w = Integer.parseInt(podL1.getText().toString());
         else w = 1;
 
-        if ((w >= 29019) && (w < 39019)) {
-            Prąd1 woda = new Prąd1(0, w);
+        if ((w >= 30683) && (w < 39019)) {
+            Prąd1 woda = new Prąd1(w);
             textL1.setText(woda.toString());
         } else textL1.setText("nieprawidłowe dane");
 
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             w = Integer.parseInt(podL2.getText().toString());
         else w = 1;
 
-        if ((w >= 1685) && (w < 9023)) {
-            Prąd2 woda = new Prąd2(0, w);
+        if ((w >= 2658) && (w < 9023)) {
+            Prąd2 woda = new Prąd2( w);
             textL2.setText(woda.toString());
         } else textL2.setText("nieprawidłowe dane");
     }

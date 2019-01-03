@@ -2,12 +2,11 @@ package com.apress.gerber.liczniki;
 
 public class Prąd1 {
 
-    private int bazaL = 29426;
-    private int stanL = 29426;
+    private int bazaL = 30683;
+    private int stanL = 30683;
     private double ab = (4.34 + 6.50 + 0.38 + 6.49 + 6) * 1.23;
     private double jcenaS = 0.2411;
     private double jcenaD = 0.1601;
-    private int korekta = 0;
 
     public Prąd1( int stanL)
     {
@@ -15,11 +14,6 @@ public class Prąd1 {
         this.stanL = stanL;
     }
 
-    public Prąd1(int korekta, int stanL)
-    {
-        this.korekta = korekta;
-        this.stanL = stanL;
-    }
 
 
     public double obliczLicznik(int stanL)
@@ -49,7 +43,7 @@ public class Prąd1 {
         int zuycie = stanL - bazaL;
         double s11 = zuycie * jcenaS * 1.23;
         double s21 = zuycie * jcenaD * 1.23;
-        Parametr par1 = new Parametr(korekta);
+        Parametr par1 = new Parametr();
         double prognozaL1 = ((s11 + s21) * par1.obliczParametr()) + ab;
         int nprognozaL1 = (int) Math.round(prognozaL1);
         return nprognozaL1;
