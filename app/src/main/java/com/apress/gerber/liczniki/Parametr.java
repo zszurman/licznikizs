@@ -1,14 +1,10 @@
 package com.apress.gerber.liczniki;
 import java.util.Calendar;
 
-public class Parametr {
-
-
+     public class Parametr {
     private Calendar dzi = Calendar.getInstance();
 
-    public Parametr(){}
-
-    public double obliczParametr()
+       protected double obliczParametr()
     {
         int dy = dzi.get(Calendar.DAY_OF_YEAR);
         int dm = dzi.get(Calendar.DAY_OF_MONTH);

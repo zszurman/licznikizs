@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         else w = 1;
 
         if ((w >= 396) && (w < 600)) {
-            Woda woda = new Woda(w);
+            Suma woda = new Woda(w);
             textW.setText(woda.toString());
         } else textW.setText("nieprawidłowe dane");
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         else w = 1;
 
         if ((w >= 30683) && (w < 39019)) {
-            Prąd1 woda = new Prąd1(w);
+            Suma woda = new Prąd1(w);
             textL1.setText(woda.toString());
         } else textL1.setText("nieprawidłowe dane");
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         else w = 1;
 
         if ((w >= 2658) && (w < 9023)) {
-            Prąd2 woda = new Prąd2( w);
+            Suma woda = new Prąd2( w);
             textL2.setText(woda.toString());
         } else textL2.setText("nieprawidłowe dane");
     }

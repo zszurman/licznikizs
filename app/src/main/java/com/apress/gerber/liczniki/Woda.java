@@ -1,57 +1,51 @@
 package com.apress.gerber.liczniki;
 
-public class Woda {
+public class Woda extends Suma {
 
     private int bazaL = 396;
-    private int stanL = 396;
+    private int stanL;
     private double jcenaW = 5.19;
     private double jcenaK = 6.71;
     private double ab = 12.20;
 
-    public Woda(int stanL)
-    {
+     Woda(int stanL) {
 
         this.stanL = stanL;
     }
 
-
-    public double obliczLicznik(int stanL)
-    {
-        int zuycie = stanL - bazaL;
-        double woda = (zuycie * jcenaW) + (zuycie * jcenaW * 0.08);
-        double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
-        double wk = woda + kanal + ab;
-        int nwk = (int) Math.round(wk);
-        return nwk;
-
-    }
-
-    public double obliczZLicznik(int stanL)
-    {
-        int zuycie = stanL - bazaL;
-        double woda = (zuycie * jcenaW) + (zuycie * jcenaW * 0.08);
-        double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
+    @Override
+    protected void obliczZuzycie() {
+        int zu = stanL - bazaL;
+        double woda = (zu * jcenaW) + (zu * jcenaW * 0.08);
+        double kanal = (zu * jcenaK) + (zu * jcenaK * 0.08);
         double zwk = woda + kanal;
-        int nzwk = (int) Math.round(zwk);
-        return nzwk;
+        super.zuzycie = (int) Math.round(zwk);
 
     }
 
-    public double obliczPrognoza(int stanL)
-    {
-        int zuycie = stanL - bazaL;
-        double woda = (zuycie * jcenaW) + (zuycie * jcenaW * 0.08);
-        double kanal = (zuycie * jcenaK) + (zuycie * jcenaK * 0.08);
+    @Override
+    protected void obliczDozaplaty() {
+        int zu = stanL - bazaL;
+        double woda = (zu * jcenaW) + (zu * jcenaW * 0.08);
+        double kanal = (zu * jcenaK) + (zu * jcenaK * 0.08);
+        double wk = woda + kanal + ab;
+        super.dozaplaty = (int) Math.round(wk);
+
+    }
+
+    @Override
+    protected void obliczPrognoza() {
+        int zu = stanL - bazaL;
+        double woda = (zu * jcenaW) + (zu * jcenaW * 0.08);
+        double kanal = (zu * jcenaK) + (zu * jcenaK * 0.08);
         Parametr par = new Parametr();
         double prognozaW = ((woda + kanal) * par.obliczParametr()) + ab;
-        int nprognozaW = (int) Math.round(prognozaW);
-        return nprognozaW;
+        super.prognoza = (int) Math.round(prognozaW);
+
+    }
+    public String toString() {
+        return "W: " + super.toString();
     }
 
-    public String toString()
-    {
-        return "W: zużycie " + obliczZLicznik(stanL)+  " zł. do zapłaty " + obliczLicznik(stanL)  + " zł. " + "rachunek "
-                + obliczPrognoza(stanL)  + " zł.";
-    }
 
 }
