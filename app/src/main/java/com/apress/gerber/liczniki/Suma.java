@@ -2,9 +2,23 @@ package com.apress.gerber.liczniki;
 
 public abstract class Suma {
 
-   protected int zuzycie = -1;
-    protected int dozaplaty = -1;
-    protected int prognoza = -1;
+    protected double jcenaS = 0.2411; // prąd cena sprzedaży
+    protected double jcenaD = 0.1601; // prąd cena dostawy
+    protected double jcenaW = 5.19; // woda cena wody
+    protected double jcenaK = 6.71; // woda cena kanalizacji
+
+    protected int ilosc = -1;
+    protected double zuzycie = -1;
+    protected double dozaplaty = -1;
+    protected double prognoza = -1;
+
+    protected abstract void obliczIlosc();
+
+    protected double getIlosc() {
+        if (ilosc == -1)
+            obliczIlosc();
+        return ilosc;
+    }
 
     protected abstract void obliczZuzycie();
 
@@ -31,20 +45,10 @@ public abstract class Suma {
     }
 
     public String toString() {
-        return "zużycie: " + getZuzycie() + " zł. do zapłaty: " + getDozaplaty() + " zł. rachunek: " + getPrognoza();
+        return "(" + getZuzycie() + " zł.), aktualnie " + getDozaplaty() + " zł., prognoza " + getPrognoza()
+                + " zł.";
 
     }
-
-    public static void main(String[] args) {
-
-        Suma woda = new Woda(409);
-        System.out.println(woda.toString());
-        Suma l94 = new Prąd1(30946);
-        System.out.println(l94.toString());
-        Suma l95 = new Prąd2(2775);
-        System.out.println(l95.toString());
-    }
-
 
 
 }

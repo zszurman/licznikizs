@@ -1,17 +1,25 @@
 package com.apress.gerber.liczniki;
 
-public class Woda extends Suma {
+public class Prad extends Suma {
+
     private int bazaL;
     private int stanL;
     private double ab;
+    private String name;
     private int dzienO;
 
-    public Woda(int stanL, int bazaL, double ab, int dzienO) {
 
+    public Prad(String name, int stanL, int bazaL, double ab, int dzienO) {
+
+        this.name = name;
         this.stanL = stanL;
         this.bazaL = bazaL;
         this.ab = ab;
         this.dzienO = dzienO;
+    }
+
+    protected String getName() {
+        return name;
     }
 
     @Override
@@ -23,29 +31,29 @@ public class Woda extends Suma {
     @Override
     protected void obliczZuzycie() {
         int zu = stanL - bazaL;
-        double woda = (zu * super.jcenaW) + (zu * super.jcenaW * 0.08);
-        double kanal = (zu * super.jcenaK) + (zu * super.jcenaK * 0.08);
-        double zwk = Math.round((woda + kanal) * 100);
-        super.zuzycie = zwk / 100;
+        double zlicznik = Math.round(zu * 1.23 * (super.jcenaS + super.jcenaD) * 100);
+        super.zuzycie = zlicznik / 100;
+
     }
 
     @Override
     protected void obliczDozaplaty() {
-
         double doz = Math.round((super.zuzycie + ab) * 100);
         super.dozaplaty = doz / 100;
+
     }
 
     @Override
     protected void obliczPrognoza() {
-
         Parametr par = new Parametr(dzienO);
         double prog = Math.round((super.zuzycie * par.obliczParametr() + ab) * 100);
         super.prognoza = prog / 100;
+
     }
 
     public String toString() {
-        return "W: " + getIlosc() + " m^3 " + super.toString();
+        return getName() + ": "  + getIlosc() + " kWh "  + super.toString();
     }
 
 }
+

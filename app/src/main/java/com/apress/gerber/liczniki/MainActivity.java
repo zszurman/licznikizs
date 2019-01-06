@@ -1,61 +1,78 @@
 package com.apress.gerber.liczniki;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private int stanLW =1;
+    private int bazaLW = 408;
+    private double abW = 12.20; // woda opłaty stałe
+    private int doW = 5;
+
+    private int stanL94 = 1;
+    private int bazaL94 = 30932;
+    private double ab94 = (4.34 + 6.50 + 0.38 + 6.49 + 6) * 1.23; // L94 opłaty stałe
+    private int do94 = 5;
+    private String n94 = "L94";
+
+    private int stanL95 = 1;
+    private int bazaL95 = 2773;
+    private double ab95 = (7 + 6.50 + 0.38 + 6.49 + 6) * 1.23; // L95 opłaty stałe
+    private int do95 = 5;
+    private String n95 = "L95";
+                                          // ceny jednostkowe podać w abstract class Suma
+    public MainActivity(){
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textW= findViewById(R.id.editText3);
+        TextView textL1= findViewById(R.id.editText4);
+        TextView textL2= findViewById(R.id.editText5);
+        textW.setText("Woda odczyt: " + String.valueOf(bazaLW));
+        textL1.setText("L94 odczyt: " + String.valueOf(bazaL94));
+        textL2.setText("L95 odczyt: " + String.valueOf(bazaL95));
     }
 
     public void zmW(View view) {
         TextView textW = findViewById(R.id.editText3);
         TextView podW = findViewById(R.id.editText6);
-        int w = 1;
-        if ((podW.getText().length() != 0))
-            w = Integer.parseInt(podW.getText().toString());
-        else w = 1;
-
-        if ((w >= 396) && (w < 600)) {
-            Suma woda = new Woda(w);
+        if   ((podW.getText().length() != 0))
+             stanLW = Integer.parseInt(podW.getText().toString());
+        else stanLW = 1;
+        if   ((stanLW < (bazaLW +300)) && (stanLW >= bazaLW)) {
+            Suma woda = new Woda(stanLW, bazaLW, abW, doW);
             textW.setText(woda.toString());
-        } else textW.setText("nieprawidłowe dane");
-
+       }else textW.setText("nieprawidłowe dane");
     }
 
     public void zmL1(View view) {
         TextView textL1 = findViewById(R.id.editText4);
         TextView podL1 = findViewById(R.id.editText7);
-        int w = 1;
-        if ((podL1.getText().length() != 0))
-            w = Integer.parseInt(podL1.getText().toString());
-        else w = 1;
-
-        if ((w >= 30683) && (w < 39019)) {
-            Suma woda = new Prąd1(w);
-            textL1.setText(woda.toString());
-        } else textL1.setText("nieprawidłowe dane");
-
+        if   ((podL1.getText().length() != 0))
+             stanL94 = Integer.parseInt(podL1.getText().toString());
+        else stanL94 = 1;
+        if   ((stanL94 >= bazaL94 ) && (stanL94 < (bazaL94 + 2000))) {
+              Suma L94 = new Prad(n94, stanL94, bazaL94, ab94, do94);
+              textL1.setText(L94.toString());
+      } else  textL1.setText("nieprawidłowe dane");
     }
 
     public void zmL2(View view) {
-
         TextView textL2 = findViewById(R.id.editText5);
         TextView podL2 = findViewById(R.id.editText8);
-        int w = 1;
-        if ((podL2.getText().length() != 0))
-            w = Integer.parseInt(podL2.getText().toString());
-        else w = 1;
-
-        if ((w >= 2658) && (w < 9023)) {
-            Suma woda = new Prąd2( w);
-            textL2.setText(woda.toString());
+        if   ((podL2.getText().length() != 0))
+             stanL95 = Integer.parseInt(podL2.getText().toString());
+        else stanL95 = 1;
+        if  ((stanL95 >= bazaL95) && (stanL95 < bazaL95 + 2000)) {
+             Suma L95 = new Prad(n95, stanL95, bazaL95, ab95, do95);
+             textL2.setText(L95.toString());
         } else textL2.setText("nieprawidłowe dane");
     }
-
 }
