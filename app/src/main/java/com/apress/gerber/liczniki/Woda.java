@@ -23,8 +23,8 @@ public class Woda extends Suma {
     @Override
     protected void obliczZuzycie() {
         int zu = stanL - bazaL;
-        double woda = (zu * super.jcenaW) + (zu * super.jcenaW * 0.08);
-        double kanal = (zu * super.jcenaK) + (zu * super.jcenaK * 0.08);
+        double woda = (zu * super.jcenaW)*1.08;
+        double kanal = (zu * super.jcenaK)*1.08;
         double zwk = Math.round((woda + kanal) * 100);
         super.zuzycie = zwk / 100;
     }

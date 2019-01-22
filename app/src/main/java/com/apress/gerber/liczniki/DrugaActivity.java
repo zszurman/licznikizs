@@ -49,7 +49,16 @@ public class DrugaActivity extends AppCompatActivity {
     }
 
     public void rob(View view) {
-        String[] jola= {"jolszurman@wp.pl"};
+
+        Intent tel = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+48323030991"));
+        if (tel.resolveActivity(getPackageManager()) != null) {
+            startActivity(tel);
+        }
+
+
+
+
+      /*  String[] jola= {"jolszurman@wp.pl"};
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/html");
         intent.putExtra(Intent.EXTRA_EMAIL, jola);
@@ -60,8 +69,8 @@ public class DrugaActivity extends AppCompatActivity {
 
 
         startActivity(Intent.createChooser(intent, "Send Email"));
-
+*/
 
     }
-    }
+
 }

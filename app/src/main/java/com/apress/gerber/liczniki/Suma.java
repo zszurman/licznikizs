@@ -5,7 +5,7 @@ public abstract class Suma {
     protected double jcenaS = 0.2411; // prąd cena sprzedaży
     protected double jcenaD = 0.1601; // prąd cena dostawy
     protected double jcenaW = 5.19; // woda cena wody
-    protected double jcenaK = 6.71; // woda cena kanalizacji
+    protected double jcenaK = 7.02; // woda cena kanalizacji
 
     protected int ilosc = -1;
     protected double zuzycie = -1;

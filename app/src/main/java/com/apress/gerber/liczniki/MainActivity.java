@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int stanLW = 1;
     private int bazaLW = 410;
-    private double abW = 12.20; // woda opłaty stałe
+    private double abW = (10.04 + 3.23)*1.08; // woda opłaty stałe
     private int doW = 8;
 
     private int stanL94 = 1;
@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textL1 = findViewById(R.id.editText4);
         TextView textL2 = findViewById(R.id.editText5);
         Button druga = findViewById(R.id.button4);
-        textW.setText("Woda odczyt: " + String.valueOf(bazaLW));
-        textL1.setText("L94 odczyt: " + String.valueOf(bazaL94));
-        textL2.setText("L95 odczyt: " + String.valueOf(bazaL95));
+        textW.setText("Woda odczyt " + String.valueOf(bazaLW));
+        textL1.setText("L94 odczyt " + String.valueOf(bazaL94));
+        textL2.setText("L95 odczyt "  + String.valueOf(bazaL95));
     }
 
     public void zmW(View view) {
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         if ((stanLW < (bazaLW + 300)) && (stanLW >= bazaLW)) {
             Suma woda = new Woda(stanLW, bazaLW, abW, doW);
             textW.setText(woda.toString());
-        } else textW.setText("nieprawidłowe dane");
+        } else textW.setText(getResources().getString(R.string.blad));
     }
 
     public void zmL1(View view) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if ((stanL94 >= bazaL94) && (stanL94 < (bazaL94 + 2000))) {
             Suma L94 = new Prad(n94, stanL94, bazaL94, ab94, do94);
             textL1.setText(L94.toString());
-        } else textL1.setText("nieprawidłowe dane");
+        } else textL1.setText(getResources().getString(R.string.blad));
     }
 
     public void zmL2(View view) {
@@ -81,32 +81,24 @@ public class MainActivity extends AppCompatActivity {
         if ((stanL95 >= bazaL95) && (stanL95 < bazaL95 + 2000)) {
             Suma L95 = new Prad(n95, stanL95, bazaL95, ab95, do95);
             textL2.setText(L95.toString());
-        } else textL2.setText("nieprawidłowe dane");
+        } else textL2.setText(getResources().getString(R.string.blad));
     }
 
     public void druga(View view) {
         Intent drugaIntent = new Intent(getApplicationContext(), DrugaActivity.class);
-        drugaIntent.putExtra("aupa", "stan licznika wody");
-        drugaIntent.putExtra("bupa", "stan liczników energii");
-        drugaIntent.putExtra("cupa", "stan licznika 95");
+        drugaIntent.putExtra("aupa", "dzwoń do wodociągów");
+        drugaIntent.putExtra("bupa", "podaj liczniki prądu");
+        drugaIntent.putExtra("cupa", "dzwoń do Taurona");
 
         drugaIntent.putExtra("xupa", "tel");
         drugaIntent.putExtra("yupa", "net");
-        drugaIntent.putExtra("zupa", "połącz");
-
-
-
-
+        drugaIntent.putExtra("zupa", "tel");
         startActivity(drugaIntent);
-
-
-
-
     }
 
     public void mapa(View view) {
 
-        Intent mapka = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:49.98627, 018.42030?z=16"));
+        Intent mapka = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:50.01513, 018.48285?z=20"));
         if (mapka.resolveActivity(getPackageManager()) != null) {
             startActivity(mapka);
         }
@@ -114,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void net(View view) {
+        Intent mapka = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:50.11303, 018.54548?z=20"));
+        if (mapka.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapka);
+        }
 
 
 

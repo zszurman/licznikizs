@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Liczniki</string>
+    <string name="blad">nieprawidłowe dane</string>
+
+
 </resources>
