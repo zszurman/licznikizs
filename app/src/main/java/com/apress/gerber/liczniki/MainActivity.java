@@ -12,19 +12,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     private int stanLW = 1;
-    private int bazaLW = 410;
+    private int bazaLW = 431;
     private double abW = (10.04 + 3.23)*1.08; // woda opłaty stałe
-    private int doW = 8;
+    private int doW = 5;
 
     private int stanL94 = 1;
-    private int bazaL94 = 30932;
-    private double ab94 = (4.34 + 6.50 + 0.38 + 6.49 + 6) * 1.23; // L94 opłaty stałe
+    private int bazaL94 = 31408;
+    private double ab94 = (6.49 + 6 + 4.34 + 0.33 + 0.38) * 1.23; // L94 opłaty stałe
     private int do94 = 5;
     private String n94 = "L94";
 
     private int stanL95 = 1;
-    private int bazaL95 = 2773;
-    private double ab95 = (7 + 6.50 + 0.38 + 6.49 + 6) * 1.23; // L95 opłaty stałe
+    private int bazaL95 = 2920;
+    private double ab95 = (6.49 + 6 + 7 + 0.33 + 0.38) * 1.23; // L95 opłaty stałe
     private int do95 = 5;
     private String n95 = "L95";
     // ceny jednostkowe podać w abstract class Suma
