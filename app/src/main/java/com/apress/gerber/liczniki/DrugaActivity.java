@@ -33,7 +33,6 @@ public class DrugaActivity extends AppCompatActivity {
     }
 
     public void dzwon(View view) {
-
         Intent tel = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+48324552634"));
         if (tel.resolveActivity(getPackageManager()) != null) {
             startActivity(tel);
@@ -41,7 +40,6 @@ public class DrugaActivity extends AppCompatActivity {
     }
 
     public void wyslij(View view) {
-
         Intent stronka = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ebok.tauron.pl/"));
         if (stronka.resolveActivity(getPackageManager()) != null) {
             startActivity(stronka);
@@ -49,28 +47,9 @@ public class DrugaActivity extends AppCompatActivity {
     }
 
     public void rob(View view) {
-
         Intent tel = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+48323030991"));
         if (tel.resolveActivity(getPackageManager()) != null) {
             startActivity(tel);
         }
-
-
-
-
-      /*  String[] jola= {"jolszurman@wp.pl"};
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/html");
-        intent.putExtra(Intent.EXTRA_EMAIL, jola);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Od Zyszka");
-        intent.putExtra(Intent.EXTRA_TEXT, "Cześć, testuja program. Miłych snów:)");
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-
-
-        startActivity(Intent.createChooser(intent, "Send Email"));
-*/
-
     }
-
 }

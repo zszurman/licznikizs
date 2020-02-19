@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Liczniki</string>
     <string name="blad">nieprawidłowe dane</string>
+    <string name="telefon">telefon</string>
+    <string name="wiadomo">wiadomość</string>
+    <string name="dzwo">Dzwoń</string>
+    <string name="wy_lij">Wyślij</string>
 
 
 </resources>

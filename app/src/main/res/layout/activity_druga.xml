@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:text="telefon"
+        android:text="@string/telefon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:text="wiadomość"
+        android:text="@string/wiadomo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bts1" />
 
@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:text="kkkkkkkkkkkkk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bts2" />
 
@@ -43,8 +42,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@android:drawable/checkbox_off_background"
-        android:text="Dzwoń"
         android:onClick="dzwon"
+        android:text="@string/dzwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,8 +54,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@android:drawable/checkbox_off_background"
-        android:text="Wyślij"
         android:onClick="wyslij"
+        android:text="@string/wy_lij"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bts1" />
 
@@ -67,7 +66,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@android:drawable/checkbox_off_background"
-        android:text="kk"
         android:onClick="rob"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bts2" />
